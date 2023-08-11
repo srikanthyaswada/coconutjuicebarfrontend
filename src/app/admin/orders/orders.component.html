@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 m-auto">
+            <h2 class="text-center">View Orders</h2>
+            <div class="table-responsive">
+
+                <table class="table table-bordereless">
+                    <thead>
+                        <tr>
+                            <th>s.no</th>
+                            <!-- <th>Mobile Number</th> -->
+                            <th>Product Name</th>
+                            <th>price</th>
+                            <th>quantity</th>
+                            <th>Total</th>
+                            <!-- <th>grand Total</th> -->
+                        </tr>
+                    </thead>
+                    <tbody *ngFor=" let o of orders; let i=index ">
+                        <tr>
+                        <tr *ngFor=" let od of o.orderDetails">
+                            <td>{{i+1}}</td>
+                            <!-- <td>{{o.mobilenumber}}</td> -->
+                            <td>{{od.product}}</td>
+                            <td>{{od.price}}</td>
+                            <td>{{od.quantity}}</td>
+                            <td>{{od.total}}</td>
+                            <!-- <td>{{o.grandTotal}}</td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

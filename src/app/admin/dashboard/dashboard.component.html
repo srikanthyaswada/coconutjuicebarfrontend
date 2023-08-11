@@ -1,0 +1,91 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <div class=" mb-2">
+      <img class="logo" src="/assets/images/mainlogo.png" alt="">
+    </div>
+    <hr class="m-0">
+    <!-- <div class="bg-light">
+      <span class="text-muted ms-2 p-1">MENU</span>
+    </div> -->
+    <mat-nav-list class="p-1">
+      <div class="bg-light">
+        <span class="text-muted">Employee</span>
+      </div>
+      <a class="links nav-link" routerLink="addemployee" routerLinkActive="Active">
+        <span class="material-icons me-2">
+          person_add_alt_1
+        </span>
+        Add Employee
+      </a>
+      <a class="links nav-link" routerLink="viewemployee" routerLinkActive="Active">
+        <span class="material-icons me-2">
+          manage_accounts
+        </span>
+        Employees
+      </a>
+      <hr class="m-0">
+      <div class="bg-light mt-1">
+        <span class="text-muted">Product</span>
+      </div>
+      <a class="links nav-link" routerLink="addproduct" routerLinkActive="Active">
+        <span class="material-icons me-2">
+          add_shopping_cart
+        </span>
+        Add Products
+      </a>
+      <a class="links nav-link" routerLink="viewproduct" routerLinkActive="Active">
+        <span class="material-icons me-2">
+          manage_accounts
+        </span>
+        Products
+      </a>
+      <hr class="m-0">
+      <div class="bg-light mt-1">
+        <span class="text-muted">Expenses</span>
+      </div>
+      <a class="links nav-link" routerLink="expenses" routerLinkActive="Active">
+        <span class="material-icons me-2">
+          currency_exchange
+        </span>
+        Expenses
+      </a>
+      <a class="links nav-link" routerLink="sales" routerLinkActive="Active">
+        <span class="material-icons me-2">
+          price_check
+        </span>
+        Sales
+      </a>
+      <a class="links nav-link" routerLink="orders" routerLinkActive="Active">
+        <span class="material-icons me-2">
+          price_check
+        </span>
+        Orders
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="topnav sticky-top">
+      <!-- <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button> -->
+      <button mat-icon-button (click)="drawer.toggle();">
+        <i class="bi bi-list menu"></i>
+      </button>
+      <span class="title1">CJB</span>
+      <span class="space"></span>
+      <button class="profile-btn" [matMenuTriggerFor]="beforeMenu" matTooltip="Admin Panel Settings"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+        <span class="material-icons profile-icon">
+          admin_panel_settings
+        </span>
+      </button>
+      <mat-menu #beforeMenu="matMenu" xPosition="before">
+        <button mat-menu-item>Profile</button>
+        <button mat-menu-item>Logout</button>
+      </mat-menu>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

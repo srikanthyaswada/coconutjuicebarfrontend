@@ -1,0 +1,85 @@
+<div class="container-fluid">
+    <div>
+        <h2 class="p-2 text-center">
+            Expenses
+        </h2>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 m-auto">
+            <div class="card p-2">
+                <form [formGroup]="expensesForm" (ngSubmit)="exp()">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-floating">
+                                <input type="date" class="form-control" id="floatingInput" formControlName="selectdate">
+                                <label for="floatingInput">Select Date</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-floating">
+                                <select class="form-select" id="floatingSelect"
+                                    aria-label="Floating label select example" formControlName="bills">
+                                    <option selected> --- select --- </option>
+                                    <option value="coconut">coconut</option>
+                                    <option value="food">Food</option>
+                                    <option value="rent">Rent</option>
+                                    <option value="wages">Wages</option>
+                                    <option value="powerbill">Power Bill</option>
+                                </select>
+                                <label for="floatingSelect">Bills</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" id="floatingPassword" formControlName="amount" placeholder="amount">
+                                <label for="floatingPassword">Amount</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 text-center">
+                            <button type="submit" class="btn btn-primary m-2">Add Expenses</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+<div class="mt-4 p-4">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <th></th>
+                    <th>Date</th>
+                    <th>Bills </th>
+                    <th>Amount</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of expenses index as i">
+                    <td>
+                        {{i+1}}
+                    </td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <div class="ms-2">
+                                <p class="">{{e.selectdate |  date: 'dd/MM/yyyy' }}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <p class="htn">{{e.bills}}</p>
+                    </td>
+                    <td>
+                        <p> {{e.amount}}</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

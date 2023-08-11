@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="p-2">
+                <div>
+                    <h2 class="p-2 text-center">
+                        Orders
+                    </h2>
+                </div>
+                <form [formGroup]="saleForm">
+                    <div class="row g-0">
+                        <div class="form-floating mb-4">
+                            <input type="number" class="form-control" id="floatingInput" placeholder="monilenumber"
+                                formControlName="mobilenumber">
+                            <label for="floatingInput">Mobile Number</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                                formControlName="product" (change)="getPrice($event)">
+                                <option value="">--- select ---</option>
+                                <option *ngFor="let p of products" value="{{p.productname}}">{{p.productname}}</option>
+                            </select>
+                            <label for="floatingSelect">Product</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="number" name="p" class="form-control" id="floatingPassword" placeholder="price"
+                                formControlName="price" readonly>
+                            <label for="floatingPassword">Price</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="number" name="q" class="form-control" id="floatingPassword"
+                                placeholder="quantity" formControlName="quantity" (input)="totalPrice($event)">
+                            <label for="floatingPassword">Quantity</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="number" class="form-control" id="floatingPassword" placeholder="total"
+                                formControlName="total" name="total" readonly>
+                            <label for="floatingPassword">Total</label>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success m-2 w-50" (click)="order()">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-12 m-auto">
+                    <h2 class="text-center">View Products</h2>
+
+                    <div class="table-responsive">
+                        <h3>{{orderData.mobilenumber}}</h3>
+                        <table class="table table-bordereless">
+
+                            <thead>
+                                <tr>
+                                    <th>s.no</th>
+
+                                    <th>Product Name</th>
+                                    <th>price</th>
+                                    <th>quantity</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <tr *ngFor="let p of orderData.orderDetails; let i=index ">
+                                    <td>{{i+1}}</td>
+                                    <td>{{p.product}}</td>
+                                    <td>{{p.price}}</td>
+                                    <td>{{p.quantity}}</td>
+                                    <td>{{p.total}}</td>
+                                </tr>
+                                <tr class="">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="bg-info">Grand Total</td>
+                                    <td class="text-success">{{grandTotal}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="">
+                                <p style="float: right;"> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center m-4">
+                        <button (click)="placeOrder()" class="btn btn-success btn-sm w-50"> Place Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

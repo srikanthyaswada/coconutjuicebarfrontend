@@ -1,0 +1,55 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 m-auto mt-4">
+            <div class="card border-0 mt-4">
+                <form [formGroup]="addproductForm" (ngSubmit)="addProduct()">
+                    <div class="row">
+                        <div class="text-center m-2">
+                            <h2 class="">Add Product</h2>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="description" class="form-label"> ProductName</label>
+                            <input type="text" class="form-control" id="firstname" formControlName="productname">
+                        </div>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="price" class="form-label">Image</label>
+                                <input type="file" class="form-control" id="formFile" formControlName="image"
+                                    (change)="selectedFile($event)">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 mb-3">
+                                <label for="quantity" class="form-label">Quantity</label>
+                                <input type="quantity" class="form-control" id="quantity" formControlName="quantity">
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <label for="price" class="form-label">Price</label>
+                                <input type="number" class="form-control" id="price" formControlName="price">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="rating" class="form-label">Rating</label>
+                                <input type="number" class="form-control" id="rating" formControlName="rating" />
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea type="text" class="form-control" id="description"
+                                formControlName="description"></textarea>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success w-50">
+                                Add Product
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
