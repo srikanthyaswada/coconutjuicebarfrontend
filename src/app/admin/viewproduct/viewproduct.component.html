@@ -29,9 +29,12 @@
                             <td> <img class="pic" width="100" height="60" src="{{p.image}}" alt="">
                             </td>
                             <td>
-                                <button class="btn btn-primary m-2" type="submit" (click)="editProduct(p)">Edit</button>
-                                <button class="btn btn-warning m-2" type="submit"
-                                    (click)="deleteProduct(p)">Delete</button>
+                                <span class="material-icons m-2 edit" type="submit" (click)="editProduct(p)">
+                                    edit
+                                </span>
+                                <span class="material-icons m-2 delete" type="submit" (click)="deleteProduct(p)">
+                                    delete
+                                </span>
                             </td>
                         </tr>
                     </tbody>

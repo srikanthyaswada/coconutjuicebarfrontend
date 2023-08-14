@@ -81,9 +81,9 @@
           admin_panel_settings
         </span>
       </button>
-      <mat-menu #beforeMenu="matMenu" xPosition="before">
-        <button mat-menu-item>Profile</button>
-        <button mat-menu-item>Logout</button>
+      <mat-menu #beforeMenu="matMenu" xPosition="before" class="admin-menu">
+        <button mat-menu-item routerLink="profile" routerLinkActive="Active">Profile</button>
+        <button mat-menu-item (click)="logout()">Logout</button>
       </mat-menu>
     </mat-toolbar>
     <router-outlet></router-outlet>

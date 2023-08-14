@@ -23,6 +23,7 @@ export class ExpensesComponent implements OnInit {
       selectdate: ['', [Validators.required]],
       bills: ['', [Validators.required]],
       amount: ['', [Validators.required]],
+      remarks: ['', [Validators.required]],
     });
   }
 

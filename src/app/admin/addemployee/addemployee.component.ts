@@ -51,6 +51,7 @@ export class AddemployeeComponent implements OnInit, AfterViewInit {
       mobile: ['', [Validators.required]],
       gender: ['', [Validators.required]],
       role: ['', [Validators.required]],
+      salary: ['', [Validators.required]],
       address: ['', [Validators.required]],
     });
 

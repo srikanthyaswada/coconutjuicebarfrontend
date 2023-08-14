@@ -16,6 +16,7 @@ export class SalesComponent implements OnInit {
   p!: number;
   q!: number;
   grandTotal: number = 0;
+  income: number = this.grandTotal;
 
   constructor(private adminApi: AdminService, private fb: FormBuilder) {}
 
@@ -55,6 +56,9 @@ export class SalesComponent implements OnInit {
     });
   }
   order() {
+    this.income += this.grandTotal;
+    console.log(this.income, 'ghfj');
+
     this.grandTotal += this.saleForm.value.total;
     if (this.orderData.length === 0) {
       this.orderData = {
@@ -68,6 +72,7 @@ export class SalesComponent implements OnInit {
           },
         ],
         grandTotal: this.grandTotal,
+        income: this.income,
       };
     } else {
       let ordersProduct = {
@@ -79,6 +84,7 @@ export class SalesComponent implements OnInit {
 
       this.orderData.orderDetails.push(ordersProduct);
       this.orderData.grandTotal = this.grandTotal;
+      this.orderData.income = this.income;
     }
     console.log(this.orderData, 'od');
 
@@ -88,9 +94,8 @@ export class SalesComponent implements OnInit {
   placeOrder() {
     this.adminApi.placeOrder(this.orderData).subscribe((res: any) => {
       console.log(res);
-    
+
       window.location.reload();
     });
- 
- }
+  }
 }

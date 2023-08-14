@@ -19,6 +19,7 @@ import { ExpensesComponent } from './admin/expenses/expenses.component';
 import { SalesComponent } from './admin/sales/sales.component';
 import { SelectproductComponent } from './admin/selectproduct/selectproduct.component';
 import { OrdersComponent } from './admin/orders/orders.component';
+import { MainpageComponent } from './admin/mainpage/mainpage.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { OrdersComponent } from './admin/orders/orders.component';
     SalesComponent,
     SelectproductComponent,
     OrdersComponent,
+    MainpageComponent,
   ],
   imports: [
     BrowserModule,

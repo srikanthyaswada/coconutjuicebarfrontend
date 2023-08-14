@@ -1,32 +1,33 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12 m-auto">
+        <div class="col-sm-10">
             <h2 class="text-center">View Orders</h2>
             <div class="table-responsive">
-
                 <table class="table table-bordereless">
-                    <thead>
-                        <tr>
-                            <th>s.no</th>
-                            <!-- <th>Mobile Number</th> -->
-                            <th>Product Name</th>
+                    <tbody *ngFor="let o of orders; let i=index ">
+                        <tr class="head">
+                            <td>{{i+1}} . {{o.mobilenumber}}</td>
+                            <th>Item</th>
                             <th>price</th>
                             <th>quantity</th>
-                            <th>Total</th>
-                            <!-- <th>grand Total</th> -->
+                            <th class="text-end">Total price</th>
                         </tr>
-                    </thead>
-                    <tbody *ngFor=" let o of orders; let i=index ">
-                        <tr>
                         <tr *ngFor=" let od of o.orderDetails">
-                            <td>{{i+1}}</td>
-                            <!-- <td>{{o.mobilenumber}}</td> -->
+                            <td></td>
                             <td>{{od.product}}</td>
                             <td>{{od.price}}</td>
                             <td>{{od.quantity}}</td>
-                            <td>{{od.total}}</td>
-                            <!-- <td>{{o.grandTotal}}</td> -->
+                            <td class="text-end">{{od.total}}</td>
+
                         </tr>
+                        <tr class="fw-bold text-end">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Total = <span class="text-success">{{o.grandTotal}}</span> </td>
+                        </tr>
+
                     </tbody>
                 </table>
             </div>

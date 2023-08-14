@@ -9,6 +9,7 @@ import { ViewemployeeComponent } from './admin/viewemployee/viewemployee.compone
 import { ExpensesComponent } from './admin/expenses/expenses.component';
 import { SalesComponent } from './admin/sales/sales.component';
 import { OrdersComponent } from './admin/orders/orders.component';
+import { MainpageComponent } from './admin/mainpage/mainpage.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,7 +18,8 @@ const routes: Routes = [
     path: 'admin-dashboard',
     component: DashboardComponent,
     children: [
-      { path: '', redirectTo: 'addemployee', pathMatch: 'full' },
+      { path: '', redirectTo: 'mainpage', pathMatch: 'full' },
+      { path: 'mainpage', component: MainpageComponent },
       { path: 'addemployee', component: AddemployeeComponent },
       { path: 'viewemployee', component: ViewemployeeComponent },
       { path: 'addproduct', component: AddproductComponent },

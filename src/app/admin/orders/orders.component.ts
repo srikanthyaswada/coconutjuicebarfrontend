@@ -8,13 +8,16 @@ import { AdminService } from 'src/app/shared/admin.service';
 })
 export class OrdersComponent implements OnInit {
   orders: any;
-
+  income: number = 0;
   constructor(private adminApi: AdminService) {}
 
   ngOnInit(): void {
     this.adminApi.viewOreder().subscribe((res: any) => {
       this.orders = res;
-      console.log(this.orders, 'orders');
+      this.orders.map((i: any) => {
+        this.income += i.grandTotal;
+      });
+      console.log(this.income, 'gt');
     });
   }
 }
