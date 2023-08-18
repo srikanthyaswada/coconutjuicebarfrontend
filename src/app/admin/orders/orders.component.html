@@ -1,36 +1,69 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-10">
-            <h2 class="text-center">View Orders</h2>
-            <div class="table-responsive">
-                <table class="table table-bordereless">
-                    <tbody *ngFor="let o of orders; let i=index ">
-                        <tr class="head">
-                            <td>{{i+1}} . {{o.mobilenumber}}</td>
-                            <th>Item</th>
-                            <th>price</th>
-                            <th>quantity</th>
-                            <th class="text-end">Total price</th>
-                        </tr>
-                        <tr *ngFor=" let od of o.orderDetails">
-                            <td></td>
-                            <td>{{od.product}}</td>
-                            <td>{{od.price}}</td>
-                            <td>{{od.quantity}}</td>
-                            <td class="text-end">{{od.total}}</td>
+<div class="container">
+    <div class="row mt-2">
+        <mat-form-field>
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+        </mat-form-field>
 
-                        </tr>
-                        <tr class="fw-bold text-end">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>Total = <span class="text-success">{{o.grandTotal}}</span> </td>
-                        </tr>
+        <div class="mat-elevation-z8">
+            <div class="table-responsive" style="height: 500px;">
+                <table mat-table [dataSource]="dataSource" matSort>
+                    <ng-container matColumnDef="mobile number">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Mobile Number </th>
+                        <td mat-cell *matCellDef="let row"> {{row.mobilenumber}}</td>
+                    </ng-container>
 
-                    </tbody>
+
+                    <ng-container matColumnDef="item">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Item </th>
+                        <td mat-cell *matCellDef="let row">
+                            <p *ngFor="let o of row.orderDetails"> {{o.product}} </p>
+                        </td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="price">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+                        <td mat-cell *matCellDef="let row">
+                            <p *ngFor="let o of row.orderDetails"> {{o.price}} </p>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="quantity">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
+                        <td mat-cell *matCellDef="let row">
+                            <p *ngFor="let o of row.orderDetails"> {{o.quantity}} </p>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="total price">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Bill </th>
+                        <td mat-cell *matCellDef="let row">
+                            <p *ngFor="let o of row.orderDetails"> {{o.total}} </p>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="total">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Total </th>
+                        <td mat-cell *matCellDef="let row"> {{row.grandTotal}} </td>
+                    </ng-container>
+
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
                 </table>
             </div>
+            <hr class="m-1">
+            <div class="row">
+                <div class="col-sm-11">
+                    <p class="text-end ">Grand Total <span
+                            class="income fw-bold text-primary fs-4 ms-4">{{this.income}}</span></p>
+                </div>
+            </div>
+            <hr class="m-0">
+            <mat-paginator [pageSizeOptions]="[10, 25, 100]" aria-label="Select page of users"></mat-paginator>
         </div>
     </div>
 </div>

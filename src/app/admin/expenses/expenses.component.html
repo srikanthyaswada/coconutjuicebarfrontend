@@ -20,10 +20,11 @@
                                 <select class="form-select" id="floatingSelect"
                                     aria-label="Floating label select example" formControlName="bills">
                                     <option selected> --- select --- </option>
-                                    <option value="coconut">coconut</option>
-                                    <option value="food">Food</option>
+                                    <option value="coconut">Coconut</option>
+                                    <option value="fruits">Fruits</option>
+                                    <option value="sugar">Sugar</option>
                                     <option value="rent">Rent</option>
-                                    <option value="wages">Wages</option>
+                                    <option value="salary">Salary</option>
                                     <option value="powerbill">Power Bill</option>
                                 </select>
                                 <label for="floatingSelect">Bills</label>
@@ -68,8 +69,8 @@
                     <th>S.No</th>
                     <th>Date</th>
                     <th>Bills </th>
-                    <th>Amount</th>
-                    <th></th>
+                    <th>Paid for</th>
+                    <th class="text-end">Amount</th>
             </thead>
             <tbody>
                 <tr *ngFor="let e of expenses index as i">
@@ -87,13 +88,23 @@
                         <p class="htn">{{e.bills}}</p>
                     </td>
                     <td>
-                        <p> {{e.amount}}</p>
-                    </td>
-                    <td>
                         <p>{{e.remarks}}</p>
+                    </td>
+                    <td class="text-end">
+                        <p class="ms-4"> {{e.amount}}</p>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <div class="row">
+            <div class="col-sm-11">
+
+            </div>
+            <div class="col-sm-1">
+                <p class="ta text-end">
+                    {{totalamount}}
+                </p>
+            </div>
+        </div>
     </div>
 </div>

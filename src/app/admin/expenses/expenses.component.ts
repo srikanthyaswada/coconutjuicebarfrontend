@@ -10,13 +10,16 @@ import { AdminService } from 'src/app/shared/admin.service';
 export class ExpensesComponent implements OnInit {
   expenses: any;
   expensesForm!: FormGroup;
-
+  totalamount: number = 0;
   constructor(private adminApi: AdminService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.adminApi.viewexpenses().subscribe((res: any) => {
       this.expenses = res;
-      console.log(this.expenses);
+      this.expenses.map((t: any) => {
+        this.totalamount += t.amount;
+        console.log(this.totalamount, 'e total');
+      });
     });
 
     this.expensesForm = this.fb.group({

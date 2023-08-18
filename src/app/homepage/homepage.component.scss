@@ -1,12 +1,6 @@
-.main {
-    background-color: rgb(43, 132, 89);
-    height: 759px;
+.topnav {
+    background: rgb(15, 106, 56);
 }
-
-// .topnav {
-//     background: rgb(15, 106, 56);
-//     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-// }
 
 .header {
     font-size: 22px;
@@ -39,7 +33,7 @@
 }
 
 .card {
-    background: rgb(15, 106, 56);
+
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     border-radius: 2rem;
 }

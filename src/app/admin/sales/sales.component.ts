@@ -94,8 +94,10 @@ export class SalesComponent implements OnInit {
   placeOrder() {
     this.adminApi.placeOrder(this.orderData).subscribe((res: any) => {
       console.log(res);
-
       window.location.reload();
     });
+  }
+  clear() {
+    this.saleForm.reset();
   }
 }

@@ -27,6 +27,7 @@ export class HomepageComponent {
     if (this.adminForm.valid) {
       this.api.adminLogin(this.adminForm.value).subscribe((res: any) => {
         this.admin = res;
+        debugger
         if (
           this.admin.username == this.adminForm.value.username &&
           this.admin.password == this.adminForm.value.password

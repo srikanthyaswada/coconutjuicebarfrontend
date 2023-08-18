@@ -16,7 +16,7 @@ import { AdminService } from 'src/app/shared/admin.service';
 export class AddproductComponent {
   productimg: any;
 
-  products: any
+  products: any;
 
   constructor(
     private fb: FormBuilder,
@@ -24,24 +24,21 @@ export class AddproductComponent {
     private router: Router
   ) {}
 
- 
   ngOnInit(): void {
-    this.adminApi.viewproduct().subscribe((res:any)=> {
-      console.log(res,'products');
-      this.products =res
-     })
-
+    this.adminApi.viewproduct().subscribe((res: any) => {
+      console.log(res, 'products');
+      this.products = res;
+    });
   }
 
   addproductForm = new FormGroup({
     productname: new FormControl('', [Validators.required]),
     image: new FormControl('', [Validators.required]),
-    quantity: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required]),
     rating: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
   });
-  
+
   addProduct() {
     let pdata = {
       ...this.addproductForm.value,
@@ -53,6 +50,7 @@ export class AddproductComponent {
 
     this.adminApi.addproduct(pdata).subscribe((res: any) => {
       alert('Added sucessfully');
+      this.router.navigate(['admin-dashboard/viewproduct']);
     });
   }
   selectedFile(event: any) {

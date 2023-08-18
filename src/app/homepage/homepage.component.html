@@ -15,21 +15,22 @@
     <div class="row adminlogin">
         <div class="col-sm-4 m-auto">
             <div class="row">
-                <div class="card border-0 p-4 col-sm-12">
-                    <div class="text-center">
-                        <h3 class="al text-center text-light p-4">Admin Login</h3>
-                        <form (ngSubmit)="login()" [formGroup]="adminForm">
+                <div class="card p-4">
+                    <div class="fw-bold">
+                        <h3 class="al text-center p-2">Admin Login</h3>
+                        <hr>
+                        <form class="needs-validation" (ngSubmit)="login()" [formGroup]="adminForm" novalidate>
                             <div class="mb-4">
-                                <input type="text" class="form-control ip" formControlName="username"
-                                    placeholder="Username">
+                                <label class="mb-1">Username</label>
+                                <input type="text" class="form-control ip" formControlName="username" required>
                             </div>
                             <div class="mb-4">
-                                <input type="password" class="form-control ip" formControlName="password"
-                                    placeholder="Password">
+                                <label class="mb-1">Password</label>
+                                <input type="password" class="form-control ip" formControlName="password" required>
                             </div>
-                            <div class="m-auto">
+                            <div class="text-center">
                                 <button type="submit" [disabled]="this.adminForm.invalid"
-                                    class="btn w-50">Login</button>
+                                    class="btn btn-sm w-50">Login</button>
                             </div>
                         </form>
                     </div>
@@ -38,3 +39,5 @@
         </div>
     </div>
 </div>
+
+

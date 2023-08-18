@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -10,38 +10,25 @@ import { AdminService } from 'src/app/shared/admin.service';
   templateUrl: './addemployee.component.html',
   styleUrls: ['./addemployee.component.scss'],
 })
-export class AddemployeeComponent implements OnInit, AfterViewInit {
+export class AddemployeeComponent implements OnInit {
   addEmployeeForm!: FormGroup;
   employees: any;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-
   displayedColumns: string[] = [
     'firstname',
-    'lastname',
     'gender',
     'emailid',
     'mobile',
     'role',
+    'salary',
     'address',
   ];
-  dataSource!: MatTableDataSource<any>;
+  dataSource: any = [];
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private fb: FormBuilder, private adminApi: AdminService) {}
-
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
 
   ngOnInit(): void {
     this.addEmployeeForm = this.fb.group({
@@ -58,10 +45,19 @@ export class AddemployeeComponent implements OnInit, AfterViewInit {
     this.adminApi.viewemp().subscribe((res: any) => {
       this.employees = res;
       this.dataSource = new MatTableDataSource(this.employees);
-      console.log(this.employees, 'emps');
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
   addEmp() {
     this.adminApi.addemp(this.addEmployeeForm.value).subscribe((res: any) => {
       console.log(res, 'employess');

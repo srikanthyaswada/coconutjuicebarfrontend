@@ -2,13 +2,19 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <div class=" mb-2">
-      <img class="logo" src="/assets/images/mainlogo.png" alt="">
+      <img class="logo p-2 bg-success" src="/assets/images/logo.png" alt="">
     </div>
     <hr class="m-0">
     <!-- <div class="bg-light">
       <span class="text-muted ms-2 p-1">MENU</span>
     </div> -->
     <mat-nav-list class="p-1">
+      <!-- <a class="links nav-link" routerLink="mainpage" routerLinkActive="Active">
+        <span class="material-icons me-2">
+          person_add_alt_1
+        </span>
+        Dashboard
+      </a> -->
       <div class="bg-light">
         <span class="text-muted">Employee</span>
       </div>
@@ -73,7 +79,7 @@
       <button mat-icon-button (click)="drawer.toggle();">
         <i class="bi bi-list menu"></i>
       </button>
-      <span class="title1">CJB</span>
+      <span class="title1">Cocobar</span>
       <span class="space"></span>
       <button class="profile-btn" [matMenuTriggerFor]="beforeMenu" matTooltip="Admin Panel Settings"
         aria-label="Button that displays a tooltip when focused or hovered over">
