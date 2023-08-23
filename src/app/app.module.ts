@@ -20,6 +20,7 @@ import { SalesComponent } from './admin/sales/sales.component';
 import { SelectproductComponent } from './admin/selectproduct/selectproduct.component';
 import { OrdersComponent } from './admin/orders/orders.component';
 import { MainpageComponent } from './admin/mainpage/mainpage.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { MainpageComponent } from './admin/mainpage/mainpage.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
+    AgGridModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,4 +1,25 @@
-<div class="table-responsive">
+<div class="ag-table">
+    <div class="row g-0">
+        <div class="col-sm-2 p-3">
+            <input class="search" type="text" id="filter-text-box" placeholder="Filter..."
+                (input)="onFilterTextBoxChanged()" />
+        </div>
+    </div>
+    <ag-grid-angular class="ag-theme-alpine m-auto" style="height: 600px; max-width: 1320px;" [rowData]="rowData"
+        [columnDefs]="colDefs" [defaultColDef]="defaultColDef" [animateRows]="true" [rowSelection]="'multiple'"
+        (cellClicked)="onCellClicked($event)" [pagination]="true" [dataTypeDefinitions]="dataTypeDefinitions"
+        [rowDragManaged]="true" [suppressMoveWhenRowDragging]="true" [cacheQuickFilter]="true"
+        (gridReady)="onGridReady($event)">
+
+    </ag-grid-angular>
+</div>
+
+
+
+
+
+
+<div class="table-responsive mt-4">
     <table class="table table-bordered">
         <thead class="bg-dark text-white sticky-top">
             <tr>

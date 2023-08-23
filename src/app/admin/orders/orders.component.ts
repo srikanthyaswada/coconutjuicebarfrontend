@@ -11,6 +11,7 @@ import { AdminService } from 'src/app/shared/admin.service';
 })
 export class OrdersComponent implements OnInit {
   displayedColumns: string[] = [
+    'createdAt',
     'mobile number',
     'item',
     'price',
@@ -30,6 +31,8 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
     this.adminApi.viewOreder().subscribe((res: any) => {
       this.orders = res;
+      console.log(this.orders);
+      
       this.orders.map((i: any) => {
         this.income += i.grandTotal;
       });
