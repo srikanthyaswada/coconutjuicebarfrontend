@@ -1,76 +1,92 @@
 <div class="ag-table">
-    <div class="row g-0">
-        <div class="col-sm-2 p-3">
-            <input class="search" type="text" id="filter-text-box" placeholder="Filter..."
-                (input)="onFilterTextBoxChanged()" />
-        </div>
+  <div class="row g-0">
+    <div class="col-sm-2 p-3">
+      <input
+        class="search"
+        type="text"
+        id="filter-text-box"
+        placeholder="Filter..."
+        (input)="onFilterTextBoxChanged()"
+      />
     </div>
-    <ag-grid-angular class="ag-theme-alpine m-auto" style="height: 600px; max-width: 1320px;" [rowData]="rowData"
-        [columnDefs]="colDefs" [defaultColDef]="defaultColDef" [animateRows]="true" [rowSelection]="'multiple'"
-        (cellClicked)="onCellClicked($event)" [pagination]="true" [dataTypeDefinitions]="dataTypeDefinitions"
-        [rowDragManaged]="true" [suppressMoveWhenRowDragging]="true" [cacheQuickFilter]="true"
-        (gridReady)="onGridReady($event)">
-
-    </ag-grid-angular>
+  </div>
+  <ag-grid-angular
+    class="ag-theme-alpine m-auto"
+    style="height: 600px; max-width: 1320px"
+    [rowData]="rowData"
+    [columnDefs]="colDefs"
+    [defaultColDef]="defaultColDef"
+    [animateRows]="true"
+    [rowSelection]="'multiple'"
+    (cellClicked)="onCellClicked($event)"
+    [pagination]="true"
+    [dataTypeDefinitions]="dataTypeDefinitions"
+    [rowDragManaged]="true"
+    [suppressMoveWhenRowDragging]="true"
+    [cacheQuickFilter]="true"
+    (gridReady)="onGridReady($event)"
+  >
+  </ag-grid-angular>
 </div>
 
-
-
-
-
-
 <div class="table-responsive mt-4">
-    <table class="table table-bordered">
-        <thead class="bg-dark text-white sticky-top">
-            <tr>
-                <th>S.No:</th>
-                <th>Name Of The Employee</th>
-                <th>Gender</th>
-                <th>Email Id</th>
-                <th>Mobile Number</th>
-                <th>Role</th>
-                <th>Salary</th>
-                <th>Address</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let e of employees index as i">
-                <td>
-                    {{i+1}}
-                </td>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="ms-2">
-                            <p class="">{{e.firstname}} {{e.lastname}}</p>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <p class="htn">{{e.gender}}</p>
-                </td>
-                <td>
-                    <span><i class="bi bi-envelope-at"></i>&nbsp;&nbsp; {{e.email}} </span><br>
-                </td>
-                <td>
-                    <span><i class="bi bi-telephone-outbound"></i>&nbsp;&nbsp; {{e.mobile}}</span>
-                </td>
-                <td>
-                    <p> {{e.role}}</p>
-                </td>
-                <td>
-                    <p> {{e.salary}}</p>
-                </td>
-                <td>
-                    <p>{{e.address}}
-                </td>
-                <td>
-                    <div class="">
-                        <i class="bi bi-pencil-square edit m-1" (click)="edit(e)"></i>
-                        <i class="bi bi-trash3 delete m-1" (click)="delete(e)"></i>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+  <table class="table table-bordered">
+    <thead class="bg-dark text-white sticky-top">
+      <tr>
+        <th>S.No:</th>
+        <th>Name Of The Employee</th>
+        <th>Gender</th>
+        <th>Email Id</th>
+        <th>Mobile Number</th>
+        <th>Role</th>
+        <th>Salary</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of employees; index as i">
+        <td>
+          {{ i + 1 }}
+        </td>
+        <td>
+          <div class="d-flex align-items-center">
+            <div class="ms-2">
+              <p class="">{{ e.firstname }} {{ e.lastname }}</p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="htn">{{ e.gender }}</p>
+        </td>
+        <td>
+          <span
+            ><i class="bi bi-envelope-at"></i>&nbsp;&nbsp; {{ e.email }} </span
+          ><br />
+        </td>
+        <td>
+          <span
+            ><i class="bi bi-telephone-outbound"></i>&nbsp;&nbsp;
+            {{ e.mobile }}</span
+          >
+        </td>
+        <td>
+          <p>{{ e.role }}</p>
+        </td>
+        <td>
+          <p>{{ e.salary }}</p>
+        </td>
+        <td>
+          <p>{{ e.address }}</p>
+        </td>
+
+        <td>
+          <div class="">
+            <i class="bi bi-pencil-square edit m-1" (click)="edit(e)"></i>
+            <i class="bi bi-trash3 delete m-1" (click)="delete(e)"></i>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

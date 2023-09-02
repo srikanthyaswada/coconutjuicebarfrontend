@@ -47,7 +47,7 @@ import { AgGridModule } from 'ag-grid-angular';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AgGridModule
+    AgGridModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

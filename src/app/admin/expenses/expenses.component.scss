@@ -1,19 +1,27 @@
-.ta{
-    border: 2px 0px 4px 0px solid;
+.ta {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
-
+.my-custom-scrollbar {
+  position: relative;
+  height: 260px;
+  overflow: auto;
+}
+.table-wrapper-scroll-y {
+  display: block;
+}
 
 .ag-theme-alpine {
-    --ag-foreground-color: black;
-    --ag-background-color: rgb(254, 254, 252);
-    --ag-header-foreground-color: black;
-    --ag-header-background-color: rgb(231, 239, 235);
-    --ag-font-family: Arial, Helvetica, sans-serif;
-    --ag-grid-size: 5px;
-    --ag-list-item-height: 20px;
-    --ag-borders: solid;
-    --ag-row-border-style: solid;
-    --ag-row-border-width: 2px;
-    --ag-row-border-color: rgb(141, 141, 151);
+  --ag-foreground-color: black;
+  --ag-background-color: rgb(254, 254, 252);
+  --ag-header-foreground-color: black;
+  --ag-header-background-color: rgb(231, 239, 235);
+  --ag-font-family: Arial, Helvetica, sans-serif;
+  --ag-grid-size: 5px;
+  --ag-list-item-height: 20px;
+  --ag-borders: solid;
+  --ag-row-border-style: solid;
+  --ag-row-border-width: 2px;
+  --ag-row-border-color: rgb(141, 141, 151);
 }
